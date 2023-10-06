@@ -14,14 +14,15 @@ function setup() {
 
 function draw() {
   background(0);
-  circle(x_Bola,y_Bola,diametro);
   
-  x_Bola += velocidadeXBola ;
+  criaBola();
+  movimentaBola();
+  verificaColisao();
+
   
-  y_Bola += velocidadeYBola ;
-  
-  
-  
+}
+
+function verificaColisao(){
   if(x_Bola + raio > width || x_Bola - raio < 0){
     velocidadeXBola *= -1;
   }
@@ -29,5 +30,15 @@ function draw() {
   if(y_Bola  + raio > height || y_Bola - raio  < 0){
     velocidadeYBola *= -1;
   }
+}
+
+function movimentaBola(){
+    
+  x_Bola += velocidadeXBola ;
+  y_Bola += velocidadeYBola ;
   
+  
+}
+function criaBola(){
+  circle(x_Bola,y_Bola,diametro);
 }
